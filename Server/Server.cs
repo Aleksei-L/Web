@@ -1,10 +1,15 @@
+using AuthService;
+using Data;
+
 namespace Server;
 
 public static class Server {
     public static void Main(string[] args) {
         var builder = WebApplication.CreateBuilder(args);
-
         builder.Services.AddControllersWithViews();
+        builder.Services.AddScoped<JwtService>();
+        builder.Services.AddScoped<LoginService>();
+        builder.Services.Configure<LoginSettings>(builder.Configuration.GetSection("LoginSettings"));
 
         var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿namespace DataLibrary;
+﻿namespace Data;
 
 public record Account(
     Guid id,
