@@ -8,17 +8,17 @@ using Microsoft.IdentityModel.Tokens;
 namespace AuthService;
 
 public class JwtService(IOptions<LoginSettings> options) {
-    public string generateToken(Account account) {
+    public string GenerateToken(Account account) {
         var claims = new List<Claim> {
-            new("id", account.id.ToString()),
-            new("username", account.username)
+            new("id", account.Id.ToString()),
+            new("username", account.Username)
         };
 
         var jwtToken = new JwtSecurityToken(
-            expires: DateTime.UtcNow.Add(options.Value.expires),
+            expires: DateTime.UtcNow.Add(options.Value.Expires),
             claims: claims,
             signingCredentials: new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Value.secretKey)),
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Value.SecretKey)),
                 SecurityAlgorithms.HmacSha256
             )
         );

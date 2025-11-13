@@ -1,7 +1,7 @@
 namespace Server.Models;
 
 public class ErrorViewModel {
-    public string? requestId { get; init; }
+    public string? RequestId { get; init; }
 
-    public bool showRequestId => !string.IsNullOrEmpty(requestId);
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }

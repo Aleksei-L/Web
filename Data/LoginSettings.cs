@@ -1,6 +1,6 @@
 namespace Data;
 
 public class LoginSettings {
-    public required TimeSpan expires { get; init; }
-    public required string secretKey { get; init; }
+    public required TimeSpan Expires { get; init; }
+    public required string SecretKey { get; init; }
 }

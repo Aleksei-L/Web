@@ -1,5 +1,6 @@
 using AuthService;
 using Data;
+using DatabaseService;
 
 namespace Server;
 
@@ -10,6 +11,7 @@ public static class Server {
         builder.Services.AddScoped<JwtService>();
         builder.Services.AddScoped<LoginService>();
         builder.Services.Configure<LoginSettings>(builder.Configuration.GetSection("LoginSettings"));
+        builder.Services.AddDataAccess();
 
         var app = builder.Build();
 
@@ -28,7 +30,7 @@ public static class Server {
         app.MapStaticAssets();
         app.MapControllerRoute(
             "default",
-            "{controller=Login}/{action=login}/{id?}"
+            "{controller=Login}/{action=Login}/{id?}"
         ).WithStaticAssets();
 
         app.Run();

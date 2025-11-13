@@ -1,7 +1,7 @@
 ﻿namespace Data;
 
 public record Account(
-    Guid id,
-    string username,
-    string passwordHash
+    Guid Id,
+    string Username,
+    string PasswordHash
 );

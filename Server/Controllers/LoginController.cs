@@ -7,18 +7,18 @@ public class LoginController(
     LoginService loginService
 ) : Controller {
     [HttpGet]
-    public IActionResult login() {
+    public IActionResult Login() {
         ViewData["Title"] = "Login";
         return View();
     }
 
     [HttpPost]
-    public IActionResult login(string username, string password) {
+    public IActionResult Login(string username, string password) {
         ViewData["Title"] = "Login processing...";
 
         string token;
         try {
-            token = loginService.login(username, password);
+            token = loginService.Login(username, password);
         } catch (Exception) {
             return BadRequest();
         }
