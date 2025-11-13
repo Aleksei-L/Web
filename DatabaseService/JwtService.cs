@@ -5,7 +5,7 @@ using Data;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AuthService;
+namespace DatabaseService;
 
 public class JwtService(IOptions<LoginSettings> options) {
     public string GenerateToken(Account account) {

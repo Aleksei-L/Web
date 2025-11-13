@@ -1,4 +1,4 @@
-using AuthService;
+using DatabaseService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers;
@@ -24,5 +24,16 @@ public class LoginController(
         }
 
         return Ok(token);
+    }
+
+    [HttpPost]
+    public IActionResult Register(string username, string password) {
+        try {
+            loginService.Register(username, password);
+        } catch (Exception) {
+            return BadRequest();
+        }
+
+        return Ok();
     }
 }

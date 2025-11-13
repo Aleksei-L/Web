@@ -1,4 +1,3 @@
-using AuthService;
 using Data;
 using DatabaseService;
 
@@ -11,7 +10,8 @@ public static class Server {
         builder.Services.AddScoped<JwtService>();
         builder.Services.AddScoped<LoginService>();
         builder.Services.Configure<LoginSettings>(builder.Configuration.GetSection("LoginSettings"));
-        builder.Services.AddDataAccess();
+        builder.Services.AddScoped<AccountsRepository>();
+        builder.Services.AddDatabaseAccess();
 
         var app = builder.Build();
 
